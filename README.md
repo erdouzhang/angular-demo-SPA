@@ -52,13 +52,13 @@ When navigating to /team/11/user/bob, the router will create the team component 
 		outlet: 'aux'
 		}]
 When navigating to /team/11(aux:chat/jim), the router will create the team component next to the chat component. The chat component will be placed into the aux outlet.
-###Wild Cards（通配符）
+### Wild Cards（通配符）
 		[{
 		  path: '**',
 		  component: Sink
 		}]
 不管导航到哪组件（Sink）都被实例化
-###Redirects(重定向)
+### Redirects(重定向)
 		[{
 		  path: 'team/:id',
 		  component: Team,
@@ -73,5 +73,8 @@ When navigating to /team/11(aux:chat/jim), the router will create the team compo
 When navigating to '/team/11/legacy/user/jim', the router will change the url to '/team/11/user/jim', and then will instantiate the team component with the user component in it.
 
 If the redirectTo value starts with a '/', then it is an absolute redirect. E.g., if in the example above we change the redirectTo to /user/:name, the result url will be '/user/jim'.
+
+
+### 更新中
 
 
