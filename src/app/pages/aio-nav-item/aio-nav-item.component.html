@@ -1,0 +1,31 @@
+<div class="ng-star-inserted" *ngFor="let item of dataArray;let i = index;">
+  <a *ngIf="item.child.length == 0" class="vertical-menu-item level-1"  routerLink="/{{item.baseUrl}}" title=""> {{item.name}} </a>
+  <div *ngIf="item.child.length > 0">
+    <button [ngClass]="item.status == 0 ? 'collapsed':'expanded'" class="vertical-menu-item heading level-1 ng-star-inserted" type="button" title=""
+      aria-pressed="false" (click)="getClassFlag(item.index)">{{item.name}}
+      <mat-triangle class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true">
+      </mat-triangle>
+    </button>
+    <!-- 判断是否子节点 --> 
+    <div [ngClass]= "item.status == 0 ? 'collapsed':'expanded'" class="heading-children level-1" *ngIf="item.child.length > 0">
+      <div class="ng-star-inserted" *ngFor="let childMenu of item.child">
+        <a *ngIf="childMenu.child.length == 0" class="vertical-menu-item level-2" routerLink="/{{childMenu.baseUrl}}" title="">
+          {{childMenu.title}} </a>
+        <div *ngIf="childMenu.child.length > 0">
+          <button [ngClass]="childMenu.status == 1 ? 'expanded':'collapsed'"  class="vertical-menu-item heading ng-star-inserted level-2 " type="button" title=""
+            aria-pressed="true" (click)="getClassFlag(childMenu)">  {{childMenu.title}}
+            <mat-triangle class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"></mat-triangle>
+          </button>
+          <div [ngClass]="childMenu.status == 1 ? 'expanded':'collapsed'" class="heading-children level-2">
+              <div class="ng-star-inserted">
+            <div class="ng-star-inserted" *ngFor="let list of childMenu.child">
+                <a [ngClass]="childMenu.status == 0 ? 'expanded':'collapsed'" class="vertical-menu-item level-3" routerLink="/{{list.baseUrl}}" title="">
+                  {{list.title}} </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
