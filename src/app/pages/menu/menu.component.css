@@ -1,0 +1,29 @@
+nav {
+    font-size: 1rem;
+    margin: 10px auto;
+
+}
+nav>li{
+  list-style: none;
+  width: 120px;
+  margin: 0 auto;
+  padding: 8px;
+  text-align: center
+}
+
+nav>li>a{
+    text-decoration: none;
+    color: #6d6666;
+    display: block;
+  }
+  nav>li>a:hover{
+    text-decoration: none;
+    color: #fff
+  }
+  nav>li:hover{
+    background-color: #a5b7d0;
+    border-radius: 5px
+  }
+
+
+
